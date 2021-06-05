@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Calculator.Controllers
 {
@@ -8,12 +6,12 @@ namespace Calculator.Controllers
     {
         public double Addition(double firstNumber, double secondNumber)
         {
-            throw new NotImplementedException();
+            return firstNumber + secondNumber;
         }
 
         public double Division(double firstNumber, double secondNumber)
         {
-            throw new NotImplementedException();
+            return firstNumber / secondNumber;
         }
 
         public double Multiplication(double firstNumber, double secondNumber)

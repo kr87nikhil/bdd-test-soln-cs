@@ -3,6 +3,7 @@ using Calculator.Controllers;
 
 namespace Calculator.Tests
 {
+    [Parallelizable(ParallelScope.All)]
     public class CalculatorTests
     {
         private CalculatorController calculatorController;
@@ -14,9 +15,12 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void WhenAdditionIsPerformed()
+        [TestCase(10, 93.7, 103.7)]
+        [TestCase(2, 7, 9)]
+        public void WhenAdditionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
-            Assert.Pass();
+            double actualResult = calculatorController.Addition(firstNumber, secondNumber);
+            Assert.AreEqual(actualResult, expectedResult);
         }
 
         [Test]
@@ -32,9 +36,12 @@ namespace Calculator.Tests
         }
 
         [Test]
-        public void WhenDivisionIsPerformed()
+        [TestCase(103, 2, 51.5)]
+        [TestCase(27.0, 3, 9.0)]
+        public void WhenDivisionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
-            Assert.Pass();
+            double actualResult = calculatorController.Division(firstNumber, secondNumber);
+            Assert.AreEqual(actualResult, expectedResult);
         }
     }
 }
