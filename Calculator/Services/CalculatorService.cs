@@ -2,8 +2,17 @@
 
 namespace Calculator.Controllers
 {
-    public class CalculatorController : ICalculatorService
+    public class CalculatorService : ICalculatorService
     {
+        public delegate double CalculatorOperations(double firstNumber, double secondNumber);
+
+        public CalculatorOperations[] GetAllValidOperations()
+        {
+            return new CalculatorOperations[] {
+                Addition, Subtraction, Multiplication, Division
+            };
+        }
+
         public double Addition(double firstNumber, double secondNumber)
         {
             return firstNumber + secondNumber;
@@ -11,6 +20,10 @@ namespace Calculator.Controllers
 
         public double Division(double firstNumber, double secondNumber)
         {
+            if (secondNumber == 0)
+            {
+                throw new DivideByZeroException("Devisor is 0");
+            }
             return firstNumber / secondNumber;
         }
 

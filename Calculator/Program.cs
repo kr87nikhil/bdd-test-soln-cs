@@ -3,13 +3,14 @@ using Calculator.Controllers;
 
 namespace Calculator
 {
-    class Program: WrongInputHandler
+    internal sealed class Program: WrongInputHandler
     {
+        private static readonly CalculatorService calculatorService = new CalculatorService();
+
         private static int selectedOption = 0;
         private static double firstNumber, secondNumber, result;
-        private static CalculatorController calculatorController;
 
-        static void Main()
+        public static void Main()
         {
             Console.WriteLine("Select operation to be performed");
             Console.WriteLine("1. Addition");
@@ -17,44 +18,17 @@ namespace Calculator
             Console.WriteLine("3. Multiplication");
             Console.WriteLine("4. Division\n");
             Console.Write("Select option: ");
+
             PerformOperation(() => {
                 selectedOption = int.Parse(Console.ReadLine());
+                var performOperation = calculatorService.GetAllValidOperations()[selectedOption - 1];
                 Console.Write("Enter 1st number: ");
                 firstNumber = double.Parse(Console.ReadLine());
                 Console.Write("Enter 2nd number: ");
                 secondNumber = double.Parse(Console.ReadLine());
+                result = performOperation(firstNumber, secondNumber);
+                Console.WriteLine("\nResult: " + result);
             });
-            calculatorController = new CalculatorController();
-            switch (selectedOption) {
-                case 1:
-                    PerformOperation(() =>
-                    {
-                        result = calculatorController.Addition(firstNumber, secondNumber);
-                    });
-                    break;
-                case 2:
-                    PerformOperation(() =>
-                    {
-                        result = calculatorController.Subtraction(firstNumber, secondNumber);
-                    });
-                    break;
-                case 3:
-                    PerformOperation(() =>
-                    {
-                        result = calculatorController.Multiplication(firstNumber, secondNumber);
-                    });
-                    break;
-                case 4:
-                    PerformOperation(() =>
-                    {
-                        result = calculatorController.Division(firstNumber, secondNumber);
-                    });
-                    break;
-                default:
-                    Console.WriteLine("Wrong option selected. Please provide correct option");
-                    break;
-            }
-            Console.WriteLine("Result: " + result);
         }
     }
 
@@ -66,22 +40,21 @@ namespace Calculator
             {
                 action.Invoke();
             }
-            catch (FormatException exception)
+            catch (IndexOutOfRangeException)
             {
-                Console.WriteLine("Wrong Input received. Please enter correct input");
-                Console.WriteLine("Exception: " + exception.Message);
+                Console.WriteLine("Wrong option selected");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Wrong Input data type received");
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Devide by 0 operation encountered. Second number for devision should not be 0");
+                Console.WriteLine("Invalid operaton: Devision by 0 encountered");
             }
             catch (Exception exception)
             {
                 Console.WriteLine("Exception: " + exception.Message);
-            }
-            finally
-            {
-                Console.WriteLine();
             }
         }
     }
