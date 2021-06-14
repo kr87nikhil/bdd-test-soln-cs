@@ -6,12 +6,12 @@ namespace Calculator.Tests
     [Parallelizable(ParallelScope.All)]
     public class CalculatorTests
     {
-        private CalculatorController calculatorController;
+        private CalculatorService calculatorController;
 
         [SetUp]
         public void Setup()
         {
-            calculatorController = new CalculatorController();
+            calculatorController = new CalculatorService();
         }
 
         [Test]
@@ -26,13 +26,13 @@ namespace Calculator.Tests
         [Test]
         public void WhenSubtractionIsPerformed()
         {
-            Assert.Pass();
+            Assert.Fail();
         }
 
         [Test]
         public void WhenMultiplicationIsPerformed()
         {
-            Assert.Pass();
+            Assert.Fail();
         }
 
         [Test]
