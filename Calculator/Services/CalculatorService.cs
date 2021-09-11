@@ -29,12 +29,12 @@ namespace Calculator.Controllers
 
         public double Multiplication(double firstNumber, double secondNumber)
         {
-            throw new NotImplementedException();
+            return firstNumber * secondNumber;
         }
 
         public double Subtraction(double firstNumber, double secondNumber)
         {
-            throw new NotImplementedException();
+            return firstNumber - secondNumber;
         }
     }
 }
