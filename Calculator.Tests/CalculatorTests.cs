@@ -22,7 +22,7 @@ namespace Calculator.Tests
         public void WhenAdditionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = calculatorService.Addition(firstNumber, secondNumber);
-            Assert.AreEqual(actualResult, expectedResult);
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
         [Test]
@@ -32,7 +32,7 @@ namespace Calculator.Tests
         public void WhenSubtractionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = calculatorService.Subtraction(firstNumber, secondNumber);
-            Assert.AreEqual(actualResult, expectedResult);
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
         [Test]
@@ -42,7 +42,7 @@ namespace Calculator.Tests
         public void WhenMultiplicationIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = calculatorService.Multiplication(firstNumber, secondNumber);
-            Assert.AreEqual(actualResult, expectedResult);
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace Calculator.Tests
         public void WhenDivisionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
             double actualResult = calculatorService.Division(firstNumber, secondNumber);
-            Assert.AreEqual(actualResult, expectedResult);
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
         [Test]
