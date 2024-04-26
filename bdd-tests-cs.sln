@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Nunit.Tests", "Calculator.Tests\Calculator.Nunit.Tests.csproj", "{DC7993EC-87E8-4CF4-971C-DDDE3F181A4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop.Electron.xUnit.Gherkin.Tests", "Desktop.Electron.xUnit.Gherkin.Tests\Desktop.Electron.xUnit.Gherkin.Tests.csproj", "{BA7EB944-76FF-433B-9353-1341EE16EA91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desktop.Native.MSTest.Specflow.Tests", "Desktop.Native.MSTest.Specflow.Tests\Desktop.Native.MSTest.Specflow.Tests.csproj", "{B260DDA9-E15F-4EF2-90BF-5C9020CA22B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{DC7993EC-87E8-4CF4-971C-DDDE3F181A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC7993EC-87E8-4CF4-971C-DDDE3F181A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC7993EC-87E8-4CF4-971C-DDDE3F181A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B260DDA9-E15F-4EF2-90BF-5C9020CA22B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B260DDA9-E15F-4EF2-90BF-5C9020CA22B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B260DDA9-E15F-4EF2-90BF-5C9020CA22B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B260DDA9-E15F-4EF2-90BF-5C9020CA22B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
