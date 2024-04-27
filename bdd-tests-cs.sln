@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Nunit.Tests", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desktop.Electron.xUnit.Gherkin.Tests", "Desktop.Electron.xUnit.Gherkin.Tests\Desktop.Electron.xUnit.Gherkin.Tests.csproj", "{BA7EB944-76FF-433B-9353-1341EE16EA91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desktop.Native.MSTest.Specflow.Tests", "Windows.Native.MSTest.Specflow.Tests\Desktop.Native.MSTest.Specflow.Tests.csproj", "{745A29D9-C78E-4837-B181-730388F5DEA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows.Native.MSTest.Specflow.Tests", "Windows.Native.MSTest.Specflow.Tests\Windows.Native.MSTest.Specflow.Tests.csproj", "{745A29D9-C78E-4837-B181-730388F5DEA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
