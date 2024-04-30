@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator", "Calculator\Calculator.csproj", "{8999388C-73BD-4E4A-9987-EC78487BDBE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator", "Console.Calculator\Console.Calculator.csproj", "{3793F700-88E3-4B37-ACB7-055371E19329}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Calculator.Nunit.Tests", "Calculator.Nunit.Tests\Calculator.Nunit.Tests.csproj", "{F6A5E1DC-8696-4E98-8A45-2552CC39CEDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator.Nunit.Tests", "Console.Calculator.Nunit.Tests\Console.Calculator.Nunit.Tests.csproj", "{5315AB74-5616-46F3-8D6A-1EC5C69059C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Desktop.Electron.xUnit.Gherkin.Tests", "Desktop.Electron.xUnit.Gherkin.Tests\Desktop.Electron.xUnit.Gherkin.Tests.csproj", "{BA7EB944-76FF-433B-9353-1341EE16EA91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI.Electron.xUnit.Gherkin.Tests", "GUI.Electron.xUnit.Gherkin.Tests\GUI.Electron.xUnit.Gherkin.Tests.csproj", "{57F8738A-69C0-456B-8D31-E6CD20B86BE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows.Native.MSTest.Specflow.Tests", "Windows.Native.MSTest.Specflow.Tests\Windows.Native.MSTest.Specflow.Tests.csproj", "{745A29D9-C78E-4837-B181-730388F5DEA1}"
 EndProject
@@ -17,18 +17,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8999388C-73BD-4E4A-9987-EC78487BDBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8999388C-73BD-4E4A-9987-EC78487BDBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8999388C-73BD-4E4A-9987-EC78487BDBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8999388C-73BD-4E4A-9987-EC78487BDBE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6A5E1DC-8696-4E98-8A45-2552CC39CEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6A5E1DC-8696-4E98-8A45-2552CC39CEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6A5E1DC-8696-4E98-8A45-2552CC39CEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6A5E1DC-8696-4E98-8A45-2552CC39CEDD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA7EB944-76FF-433B-9353-1341EE16EA91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3793F700-88E3-4B37-ACB7-055371E19329}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3793F700-88E3-4B37-ACB7-055371E19329}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3793F700-88E3-4B37-ACB7-055371E19329}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3793F700-88E3-4B37-ACB7-055371E19329}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{745A29D9-C78E-4837-B181-730388F5DEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{745A29D9-C78E-4837-B181-730388F5DEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{745A29D9-C78E-4837-B181-730388F5DEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
