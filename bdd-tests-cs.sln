@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator", "Console.Calculator\Console.Calculator.csproj", "{3793F700-88E3-4B37-ACB7-055371E19329}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator.Nunit.Tests", "Console.Calculator.Nunit.Tests\Console.Calculator.Nunit.Tests.csproj", "{5315AB74-5616-46F3-8D6A-1EC5C69059C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator.Nunit.UnitTests", "Console.Calculator.Nunit.UnitTests\Console.Calculator.Nunit.UnitTests.csproj", "{C6A36940-B7CF-4222-89D1-50697997F6B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI.Electron.xUnit.Gherkin.Tests", "GUI.Electron.xUnit.Gherkin.Tests\GUI.Electron.xUnit.Gherkin.Tests.csproj", "{57F8738A-69C0-456B-8D31-E6CD20B86BE6}"
 EndProject
@@ -21,10 +21,10 @@ Global
 		{3793F700-88E3-4B37-ACB7-055371E19329}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3793F700-88E3-4B37-ACB7-055371E19329}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3793F700-88E3-4B37-ACB7-055371E19329}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5315AB74-5616-46F3-8D6A-1EC5C69059C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A36940-B7CF-4222-89D1-50697997F6B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A36940-B7CF-4222-89D1-50697997F6B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A36940-B7CF-4222-89D1-50697997F6B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A36940-B7CF-4222-89D1-50697997F6B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57F8738A-69C0-456B-8D31-E6CD20B86BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
