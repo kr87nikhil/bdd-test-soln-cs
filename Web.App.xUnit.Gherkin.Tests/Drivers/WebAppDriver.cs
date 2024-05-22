@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Desktop.Electron.xUnit.Gherkin.Tests.Drivers;
+namespace Web.App.xUnit.Gherkin.Tests.Drivers;
 
 internal abstract class WebAppDriver
 {

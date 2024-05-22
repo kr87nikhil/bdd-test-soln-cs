@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Desktop.Electron.xUnit.Gherkin.Tests.Drivers;
+using Web.App.xUnit.Gherkin.Tests.Drivers;
 
-namespace Desktop.Electron.xUnit.Gherkin.Tests.Support;
+namespace Web.App.xUnit.Gherkin.Tests.Support;
 
 internal class DesktopAppDriverFactory : IDriverFactory
 {
