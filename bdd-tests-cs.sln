@@ -5,7 +5,7 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator", "Console.Calculator\Console.Calculator.csproj", "{3793F700-88E3-4B37-ACB7-055371E19329}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator.Nunit.UnitTests", "Console.Calculator.Nunit.UnitTests\Console.Calculator.Nunit.UnitTests.csproj", "{C6A36940-B7CF-4222-89D1-50697997F6B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Calculator.NUnit.Tests", "Console.Calculator.NUnit.Tests\Console.Calculator.NUnit.Tests.csproj", "{C6A36940-B7CF-4222-89D1-50697997F6B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.App.xUnit.Gherkin.Tests", "Web.App.xUnit.Gherkin.Tests\Web.App.xUnit.Gherkin.Tests.csproj", "{57F8738A-69C0-456B-8D31-E6CD20B86BE6}"
 EndProject
