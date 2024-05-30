@@ -1,8 +1,8 @@
 # Test Solution
-Test project targeting NUnit and XUnit test framework with Test design in BDD style.
+Test project targeting popular test framework including NUnit, XUnit and MSTest. Test design covers Unit Test in TDD & Integration test in BDD style.
 
 ## Software required
-.NET is cross platform (develop using Windows/Linux/Mac). 
+.NET is free, open-source, cross platform software development framework created by Microsoft. It provides a framework for building and running applications on different operating system including Windows, Linux and Mac. 
 
 Required:
 * IDE (Visual Studio 2022/Visual Studio Code)
@@ -19,7 +19,7 @@ Any preferred CLI (Shell/Bash/Command Prompt/Powershell) can be used to execute 
 To build all project in `bdd-test-soln-cs.sln`
 ```ps
 dotnet restore
-dotnet build -c <Debug/Release> --no-restore
+dotnet build -c Release --no-restore
 ```
 **Note**: Add `--no-build` & `--no-restore` flag in `dotnet test` script to skip above stage.
 
@@ -44,7 +44,7 @@ Execution report for test project will be available under corresponding `<testPr
 Allure command-line tool require Java 8 or above. https://allurereport.org/docs/install/
 
 ```
-allure generate Console.Calculator.Nunit.UnitTests/bin/<Debug/Release>/net8.0/allure-results -o Console.Calculator.Nunit.UnitTests/TestResults/allure-report
+allure generate Console.Calculator.Nunit.UnitTests/bin/Release/net8.0/allure-results -o Console.Calculator.Nunit.UnitTests/TestResults/allure-report
 allure open Console.Calculator.Nunit.UnitTests/TestResults/allure-report
 ```
 Reference: https://allurereport.org/docs/nunit/
@@ -56,7 +56,7 @@ It is a set of tools that allows you to share and collaborate on Gherkin Feature
 dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 ```
 ```ps
-cd Windows.Native.MSTest.Specflow.Tests/bin/<Debug/Release>/net8.0
+cd Windows.Native.MSTest.Specflow.Tests/bin/Release/net8.0
 livingdoc test-assembly Windows.Native.MSTest.Specflow.Tests.dll -t TestExecution.json --output ../../../TestResults --title "Specflow BDD Test"
 ```
 Reference: https://docs.specflow.org/projects/specflow-livingdoc/en/latest/
