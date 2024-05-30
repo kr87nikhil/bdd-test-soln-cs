@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Web.App.xUnit.Gherkin.Tests.Drivers;
 
-internal interface IDriver
+internal interface IApp
 {
 }

@@ -8,9 +8,9 @@ using Web.App.xUnit.Gherkin.Tests.Drivers;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support;
 
-internal class WebAppDriverFactory : IDriverFactory
+internal class WebBrowserFactory : IAppFactory
 {
-    public IDriver CreateDriver()
+    public IApp CreateDriver()
     {
         throw new NotImplementedException();
     }

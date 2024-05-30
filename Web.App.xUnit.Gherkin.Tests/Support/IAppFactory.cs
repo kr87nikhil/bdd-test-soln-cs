@@ -5,12 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Web.App.xUnit.Gherkin.Tests.Drivers;
 
+
 namespace Web.App.xUnit.Gherkin.Tests.Support;
 
-internal class DesktopAppDriverFactory : IDriverFactory
+internal interface IAppFactory
 {
-    public IDriver CreateDriver()
-    {
-        throw new NotImplementedException();
-    }
+    public abstract IApp CreateDriver();
 }

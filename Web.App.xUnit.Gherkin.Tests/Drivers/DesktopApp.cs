@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace Web.App.xUnit.Gherkin.Tests.Drivers;
 
-internal abstract class WebAppDriver
+internal abstract class DesktopApp
 {
 }
 
-internal class EdgeAppDriver: WebAppDriver
+internal class MacDesktopApp : DesktopApp
 {
 }
 
-internal class SafariAppDriver: WebAppDriver
-{
-}
-
-internal class ChromeAppDriver: WebAppDriver
+internal class WindowsDesktopApp: DesktopApp
 {
 }
