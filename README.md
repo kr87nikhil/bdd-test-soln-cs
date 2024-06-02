@@ -49,6 +49,19 @@ allure open Console.Calculator.Nunit.UnitTests/TestResults/allure-report
 ```
 Reference: https://allurereport.org/docs/nunit/
 
+### Pickles
+It enables team to share features locked up in code with stakeholders and starting living documentation for reference. Various format supported include HTML(Static & Dynamic), Excel, Word, JSON & Cucumber JSON. Pre-built runners are available here: https://github.com/picklesdoc/pickles/releases
+
+**Note**: Not maintained for 2+ years, are looking for new maintainers https://github.com/picklesdoc/pickles. 
+```cli
+<!-- Require .NET 6 -->
+dotnet tool install --global Pickles.CommandLine --version 4.0.3
+```
+```cli
+pickles --feature-directory=Web.App.xUnit.Gherkin.Tests/Features/ --output-directory=Web.App.xUnit.Gherkin.Tests/TestResults/documentation -Language en --link-results-file=Web.App.xUnit.Gherkin.Tests/TestResults/TestResult.xml
+```
+Format selection: http://docs.picklesdoc.com/en/latest/ArgumentsDocumentationFormat/
+
 ### Specflow + LivingDoc
 It is a set of tools that allows you to share and collaborate on Gherkin Feature Files with stakeholders who may not be familiar with developer tools.
 
@@ -59,4 +72,6 @@ dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 cd Windows.Native.MSTest.Specflow.Tests/bin/Release/net8.0
 livingdoc test-assembly Windows.Native.MSTest.Specflow.Tests.dll -t TestExecution.json --output ../../../TestResults --title "Specflow BDD Test"
 ```
-Reference: https://docs.specflow.org/projects/specflow-livingdoc/en/latest/
+Reference: 
+* https://docs.specflow.org/projects/specflow-livingdoc/en/latest/
+* https://docs.specflow.org/projects/specflow-livingdoc/en/latest/LivingDocGenerator/Using-the-command-line-tool.html
