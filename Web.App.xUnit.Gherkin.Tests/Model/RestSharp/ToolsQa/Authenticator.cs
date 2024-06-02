@@ -2,9 +2,9 @@
 using RestSharp.Authenticators;
 using Web.App.xUnit.Gherkin.Tests.Web.Model;
 
-namespace Web.App.xUnit.Gherkin.Tests.Model.RestSharpClient;
+namespace Web.App.xUnit.Gherkin.Tests.Model.RestSharp.ToolsQa;
 
-internal class ToolsQaAuthenticator(string BaseUrl, string Username, string Password) : AuthenticatorBase(string.Empty)
+internal class Authenticator(string BaseUrl, string Username, string Password) : AuthenticatorBase(string.Empty)
 {
     internal static string? LoggedInUserId { get; set; }
 
