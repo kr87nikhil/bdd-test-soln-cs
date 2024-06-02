@@ -12,6 +12,7 @@ namespace Calculator.Tests
         [SetUp]
         public void Setup()
         {
+            //Arrange
             calculatorService = new CalculatorService();
         }
 
@@ -21,7 +22,10 @@ namespace Calculator.Tests
         [TestCase(-4, 48, 44)]
         public void WhenAdditionIsPerformed(double firstNumber, double secondNumber, double expectedResult)
         {
+            //Act
             double actualResult = calculatorService.Addition(firstNumber, secondNumber);
+
+            //Assert
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
 
