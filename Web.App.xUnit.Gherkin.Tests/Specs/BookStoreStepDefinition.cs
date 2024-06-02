@@ -1,13 +1,12 @@
 ﻿using Xunit.Gherkin.Quick;
-using Feature = Xunit.Gherkin.Quick.Feature;
 
-namespace Web.App.xUnit.Gherkin.Tests.Web.Specs;
+namespace Web.App.xUnit.Gherkin.Tests.Specs;
 
 [FeatureFile(@"./Features/BookStore.feature")]
-public sealed class BookStoreStepDefinition: Feature
+public sealed class BookStoreStepDefinition: BaseStepDefinition, IDisposable
 {
-    [Given(@"I logged in as ([-\w]*) user")]
-    public void GivenILoggedInAsUser(string username)
+    [Given(@"I logged in as a standard user")]
+    public void GivenILoggedInAsAStandardUser()
     {
         throw new NotImplementedException();
     }
@@ -32,6 +31,11 @@ public sealed class BookStoreStepDefinition: Feature
 
     [Then(@"([ \w.]*)'s book ([\w ]*) should (be|not be) available")]
     public void ThenBookShouldOrShouldNotBeAvailable(string author, string title, string conditionalCheck)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Dispose()
     {
         throw new NotImplementedException();
     }
