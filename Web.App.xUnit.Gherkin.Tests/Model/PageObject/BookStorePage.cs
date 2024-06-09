@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
-using Web.App.xUnit.Gherkin.Tests.Drivers;
+using Web.App.xUnit.Gherkin.Tests.Support;
 
 namespace Web.App.xUnit.Gherkin.Tests.Model.PageObject;
 
-internal class BookStorePage(WebBrowser webBrowser)
+public class BookStorePage(BrowserFacade browserFacade)
 {
-    private readonly IWebDriver _webDriver = webBrowser.WebDriver;
+    private readonly IWebDriver _webDriver = browserFacade.OpenApp();
     internal readonly By bookStoreCategory = By.CssSelector("div.category-cards div.card:nth-child(6)");
     internal readonly By loginButton = By.CssSelector("button#login");
     internal readonly By userNameInput = By.CssSelector("input#userName");
@@ -86,7 +86,7 @@ internal class BookStorePage(WebBrowser webBrowser)
         {
             throw new ElementNotVisibleException($"No element visible: Left-pannel group<{groupName}>");
         }
-        var groupElement = groupElements.First();
+        var groupElement = groupElements[0];
         var headerElement = groupElement.FindElement(groupHeaderText);
         var sectionElements = from element in groupElement.FindElements(groupSectionName)
                               where element.Text == sectionName
