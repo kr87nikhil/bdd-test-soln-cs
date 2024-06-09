@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using RestSharp.Authenticators;
 using Web.App.xUnit.Gherkin.Tests.Web.Model;
 
 namespace Web.App.xUnit.Gherkin.Tests.Model.RestSharp.ToolsQa;
@@ -6,14 +7,11 @@ namespace Web.App.xUnit.Gherkin.Tests.Model.RestSharp.ToolsQa;
 internal sealed class WebService : IWebService, IDisposable
 {
     private readonly RestClient _restClient;
-    private const string DemoQaBaseUrl = "https://demoqa.com";
+    public const string DemoQaBaseUrl = "https://demoqa.com";
 
-    public WebService(string username, string password)
+    public WebService(AuthenticatorBase authenticator)
     {
-        var options = new RestClientOptions(DemoQaBaseUrl)
-        {
-            Authenticator = new Authenticator(DemoQaBaseUrl, username, password)
-        };
+        var options = new RestClientOptions(DemoQaBaseUrl) { Authenticator = authenticator };
         _restClient = new RestClient(options);
     }
 
@@ -36,10 +34,10 @@ internal sealed class WebService : IWebService, IDisposable
 
     public async Task<ReturnBookResponse> ReturnBook(string bookIsbn)
     {
-        var request = new RestRequest("BookStore/v1/Book")
+        var request = new RestRequest("BookStore/v1/Book", Method.Delete)
             .AddJsonBody<ReturnBookRequest>(new(Authenticator.LoggedInUserId!, bookIsbn));
-        var response = await _restClient.DeleteAsync<ReturnBookResponse>(request);
-        return response!;
+        var response = await _restClient.ExecuteAsync<ReturnBookResponse>(request);
+        return response.Data!;
     }
 
     public void Dispose()
