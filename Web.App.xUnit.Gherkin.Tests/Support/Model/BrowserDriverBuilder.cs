@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Remote;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model;
-internal abstract class BrowserDriverBuilder(DriverOptions DriverOptions)
+public abstract class BrowserDriverBuilder(DriverOptions DriverOptions)
 {
     protected abstract string DRIVEREXECUTABLE { get; }
 
@@ -34,6 +34,7 @@ internal abstract class BrowserDriverBuilder(DriverOptions DriverOptions)
     {
         return null;
     }
+
     public IWebDriver BuildRemoteBrowser(Uri seleniumGridUrl, string browserVersion = "stable")
     {
         DriverOptions.BrowserVersion = browserVersion;

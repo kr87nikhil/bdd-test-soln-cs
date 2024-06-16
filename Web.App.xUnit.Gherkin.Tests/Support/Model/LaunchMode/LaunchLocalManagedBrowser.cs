@@ -2,8 +2,8 @@
 using Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.LaunchMode;
-internal class LocalSeleniumBrowser(BrowserDriverBuilder DriverBuilder, string browserVersion) : IBrowserLaunchMode
+internal class LaunchLocalManagedBrowser(string browserVersion) : LaunchBrowser
 {
-    public IWebDriver Browser => DriverBuilder.GetType() == typeof(SafariBrowser)
+    public override IWebDriver BrowserDriver => DriverBuilder.GetType() == typeof(SafariBrowser)
         ? DriverBuilder.BuildLocalBrowser(""): DriverBuilder.BuildLocalSeleniumBrowser(browserVersion)!;
 }
