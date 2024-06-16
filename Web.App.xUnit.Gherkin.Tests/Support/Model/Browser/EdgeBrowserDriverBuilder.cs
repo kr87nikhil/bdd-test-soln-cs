@@ -1,14 +1,14 @@
 ﻿using OpenQA.Selenium.Edge;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
-internal class EdgeBrowser: BrowserDriverBuilder
+internal class EdgeBrowserDriverBuilder: BrowserDriverBuilder
 {
     protected static readonly EdgeOptions _edgeDriverOptions = new();
     protected override string DRIVEREXECUTABLE { get => "msedgedriver.exe"; }
 
-    public EdgeBrowser() : base(_edgeDriverOptions) { }
+    public EdgeBrowserDriverBuilder() : base(_edgeDriverOptions) { }
 
-    public EdgeBrowser EnableHeadless(bool enableHeadless)
+    public EdgeBrowserDriverBuilder EnableHeadless(bool enableHeadless)
     {
         if (enableHeadless)
         {

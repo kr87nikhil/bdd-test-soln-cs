@@ -1,14 +1,14 @@
 ﻿using OpenQA.Selenium.Chrome;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
-internal class ChromeBrowser : BrowserDriverBuilder
+internal class ChromeBrowserDriverBuilder : BrowserDriverBuilder
 {
     private static readonly ChromeOptions _chromeDriverOptions = new();
     protected override string DRIVEREXECUTABLE { get => "chromedriver.exe"; }
 
-    public ChromeBrowser() : base(_chromeDriverOptions) { }
+    public ChromeBrowserDriverBuilder() : base(_chromeDriverOptions) { }
 
-    public ChromeBrowser EnableHeadless(bool enableHeadless)
+    public ChromeBrowserDriverBuilder EnableHeadless(bool enableHeadless)
     {
         if (enableHeadless)
         {

@@ -2,16 +2,16 @@
 using OpenQA.Selenium.Firefox;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
-internal class FirefoxBrowser : BrowserDriverBuilder
+internal class FirefoxBrowserDriverBuilder : BrowserDriverBuilder
 {
     private static readonly FirefoxOptions _firefoxDriverOptions = new();
     private readonly string BROWSEREXECUTABLELOCATION = Platform.CurrentPlatform.PlatformType.Equals(PlatformType.Linux) 
         ? @"C:/Program Files/Mozilla Firefox/firefox.exe": "/usr/bin/firefox";
     protected override string DRIVEREXECUTABLE { get => "geckodriver.exe"; }
 
-    public FirefoxBrowser(): base(_firefoxDriverOptions) { }
+    public FirefoxBrowserDriverBuilder(): base(_firefoxDriverOptions) { }
 
-    public FirefoxBrowser EnableHeadless(bool enableHeadless)
+    public FirefoxBrowserDriverBuilder EnableHeadless(bool enableHeadless)
     {
         if (enableHeadless)
         {
