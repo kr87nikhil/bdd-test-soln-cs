@@ -1,15 +1,18 @@
 ﻿using OpenQA.Selenium.Edge;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
-internal class EdgeBrowser(EdgeOptions edgeDriverOptions) : BrowserDriverBuilder(edgeDriverOptions)
+internal class EdgeBrowser: BrowserDriverBuilder
 {
+    protected static readonly EdgeOptions _edgeDriverOptions = new();
     protected override string DRIVEREXECUTABLE { get => "msedgedriver.exe"; }
+
+    public EdgeBrowser() : base(_edgeDriverOptions) { }
 
     public EdgeBrowser EnableHeadless(bool enableHeadless)
     {
         if (enableHeadless)
         {
-            edgeDriverOptions.AddArgument("--headless");
+            _edgeDriverOptions.AddArgument("--headless");
         }
         return this;
     }
@@ -20,15 +23,15 @@ internal class EdgeBrowser(EdgeOptions edgeDriverOptions) : BrowserDriverBuilder
         edgeService.LogPath = Path.Join(driverExecutablePath, "logs/edgeDriver.log");
         edgeService.EnableAppendLog = true;
         edgeService.EnableVerboseLogging = true;
-        return new(edgeService, edgeDriverOptions);
+        return new(edgeService, _edgeDriverOptions);
     }
 
     public override EdgeDriver BuildLocalSeleniumBrowser(string browserVersion = "beta")
     {
         if (!string.IsNullOrEmpty(browserVersion))
         {
-            edgeDriverOptions.BrowserVersion = browserVersion;
+            _edgeDriverOptions.BrowserVersion = browserVersion;
         }
-        return new(edgeDriverOptions);
+        return new(_edgeDriverOptions);
     }
 }

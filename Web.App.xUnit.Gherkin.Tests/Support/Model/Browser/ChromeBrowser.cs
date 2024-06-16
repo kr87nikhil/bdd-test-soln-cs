@@ -1,15 +1,18 @@
 ﻿using OpenQA.Selenium.Chrome;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support.Model.Browser;
-internal class ChromeBrowser(ChromeOptions chromeDriverOptions) : BrowserDriverBuilder(chromeDriverOptions)
+internal class ChromeBrowser : BrowserDriverBuilder
 {
+    private static readonly ChromeOptions _chromeDriverOptions = new();
     protected override string DRIVEREXECUTABLE { get => "chromedriver.exe"; }
+
+    public ChromeBrowser() : base(_chromeDriverOptions) { }
 
     public ChromeBrowser EnableHeadless(bool enableHeadless)
     {
         if (enableHeadless)
         {
-            chromeDriverOptions.AddArgument("--headless");
+            _chromeDriverOptions.AddArgument("--headless");
         }
         return this;
     }
@@ -21,15 +24,15 @@ internal class ChromeBrowser(ChromeOptions chromeDriverOptions) : BrowserDriverB
         service.EnableAppendLog = true;
         service.EnableVerboseLogging = true;
         service.DisableBuildCheck = true;
-        return new(service, chromeDriverOptions);
+        return new(service, _chromeDriverOptions);
     }
 
     public override ChromeDriver BuildLocalSeleniumBrowser(string browserVersion = "beta")
     {
         if (!string.IsNullOrEmpty(browserVersion))
         {
-            chromeDriverOptions.BrowserVersion = browserVersion;
+            _chromeDriverOptions.BrowserVersion = browserVersion;
         }
-        return new(chromeDriverOptions);
+        return new(_chromeDriverOptions);
     }
 }
