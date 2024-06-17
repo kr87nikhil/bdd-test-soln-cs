@@ -6,38 +6,68 @@ using Web.App.xUnit.Gherkin.Tests.Support.Model.LaunchMode;
 
 namespace Web.App.xUnit.Gherkin.Tests.Support;
 
-public class BrowserFacade(bool HeadlessMode, string browserDeviceName, LaunchBrowser launchBrowser) : IWebAppFactory
+public sealed class BrowserFacade(DesktopLaptopBrowserConfiguration configurationOption) : IWebAppFactory, IDisposable
 {
-    private IWebDriver? webBrowserDriver;
-    private readonly Dictionary<string, BrowserDriverBuilder> browserBuilderCollection = [];
-    internal readonly ConcurrentDictionary<string, IWebDriver> browserDriverCollection = new();
+    private IWebDriver? _webBrowserDriver;
+    private LaunchBrowser? _launchBrowser;
+    private IDeviceBrowserBuilderFactory? _browserDeviceFactory;
+    private readonly Dictionary<string, BrowserDriverBuilder> _browserBuilderCollection = [];
+    private readonly ConcurrentDictionary<string, IWebDriver> _browserDriverCollection = new();
 
-    internal readonly IDeviceBrowserBuilderFactory BrowserDeviceFactory = 
-        browserDeviceName.Equals("Mobile") ? new MobileBrowserBuilderFactory() : new DesktopBrowserBuilderFactory(HeadlessMode);
+    public BrowserFacade SetBrowserDeviceFactory(string deviceType)
+    {
+        _browserDeviceFactory = deviceType.Equals("Mobile")
+            ? new MobileBrowserBuilderFactory() : new DesktopBrowserBuilderFactory(configurationOption.HeadlessExecution);
+        return this;
+    }
+
+    public BrowserFacade SetBrowserLaunchMode()
+    {
+        if (configurationOption.SeleniumGridExecution)
+        {
+            _launchBrowser = new LaunchRemoteBrowser(configurationOption.SeleniumGridUrl);
+        }
+        else if (!string.IsNullOrEmpty(configurationOption.LocalBrowserBinaryExecutablePath))
+        {
+            _launchBrowser = new LaunchLocalBrowser(configurationOption.LocalBrowserBinaryExecutablePath);
+        }
+        else{
+            _launchBrowser = new LaunchLocalManagedBrowser("");
+        }
+        return this;
+    }
 
     public void InitializeBrowserBuilder()
     {
-        browserBuilderCollection.Add("chrome", BrowserDeviceFactory.GetChromeBrowserDriverBuilder());
-        browserBuilderCollection.Add("edge", BrowserDeviceFactory.GetEdgeBrowserDriverBuilder());
-        browserBuilderCollection.Add("firefox", BrowserDeviceFactory.GetFirefoxBrowserDriverBuilder());
-        browserBuilderCollection.Add("safari", BrowserDeviceFactory.GetSafariBrowserDriverBuilder());
+        _browserBuilderCollection.Add("chrome", _browserDeviceFactory.GetChromeBrowserDriverBuilder());
+        _browserBuilderCollection.Add("edge", _browserDeviceFactory.GetEdgeBrowserDriverBuilder());
+        _browserBuilderCollection.Add("firefox", _browserDeviceFactory.GetFirefoxBrowserDriverBuilder());
+        _browserBuilderCollection.Add("safari", _browserDeviceFactory.GetSafariBrowserDriverBuilder());
     }
 
-    public void SetBrowserDriver(string browserName)
+    public void BuildBrowserDriver(string browserName)
     {
-        if (browserDriverCollection.TryGetValue(browserName, value: out var webDriver))
+        if (_browserDriverCollection.TryGetValue(browserName, value: out var webDriver))
         {
-            webBrowserDriver = webDriver;
+            _webBrowserDriver = webDriver;
         }
         else
         {
-            launchBrowser.DriverBuilder = browserBuilderCollection[browserName];
-            browserDriverCollection.TryAdd(browserName, launchBrowser.BrowserDriver!);
+            _launchBrowser.DriverBuilder = _browserBuilderCollection[browserName];
+            _browserDriverCollection.TryAdd(browserName, _launchBrowser.BrowserDriver!);
         }
     }
 
     public IWebDriver OpenApp()
     {
-        return webBrowserDriver!;
+        return _webBrowserDriver!;
+    }
+
+    public void Dispose()
+    {
+        foreach(var browserDriver in _browserDriverCollection.Values)
+        {
+            browserDriver.Quit();
+        }
     }
 }
